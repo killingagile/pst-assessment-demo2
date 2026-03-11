@@ -108,17 +108,13 @@
       if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === "YOUR_APPS_SCRIPT_URL_HERE") return;
       try {
         const params = new URLSearchParams({
-          timestamp:     new Date().toISOString(),
-          pioneer:       scores.pioneer,
-          settler:       scores.settler,
-          town_planner:  scores.town_planner,
-          p_pioneer:     Math.round((scores.pioneer      / 8) * 100),
-          p_settler:     Math.round((scores.settler      / 8) * 100),
-          p_town_planner: Math.round((scores.town_planner / 8) * 100),
-          name:          name,
-          email:         email,
-          profile_type:  profileType,
-          profile_label: profileLabel
+          name:        name,
+          email:       email,
+          pioneer:     scores.pioneer,
+          settler:     scores.settler,
+          townplanner: scores.town_planner,
+          profile:     profileLabel,
+          answers:     JSON.stringify(scores)
         });
         // Use an image ping — works cross-origin with no CORS issues
         const img = new Image();
